@@ -7,9 +7,10 @@ FutureGreenCountriesML is an ongoing machine learning project that currently for
 
 The data used for the project was sourced from the International Energy Agency (IEA) via their excel sheets they provide on various data points. The data points used directy from the IEA include the Total Energy Supply (TES) by source, Total Final Consumption [of energy] (TFC) by source, Total CO2 Emissions and their sources, Electricity Generation by source, Total Electricity Consumption, C02 Emissions per capita. GDP per capita is the final sourced data point, supplied by the World Bank Group. Of the 39 countries reported on, 32 are the official Memeber countries of the IEA with legal obligations and rights, 5 are Association countries who cannot vote but and cooperate with less strict bounds and there is 1 Accession country, a country in the process of becoming a member. The final country who doesn't cooperate with the IEA at all is Russia, so their data is monitored through independent analysis and monitoring their trade with other countries. Data is taken from the years 2000-2022 for a modernized approach to the model as well as for reliability. A majority of the data are numbers straight from the IEA reports, while any missing points are extrapolated based pre and proceeding years as well as supplemented by Our World in Data only if both the IEA and Our World in Data had similar numbers regarding non-missing data. 
 
-# What is a Random Forest in Machine Learning?
+## What is a Random Forest in Machine Learning?
 
-Machine learning is a ... 
+Machine learning is the process of feeding a model, like Random Forests, a data set and training the model on that data. Training means that the computer tries to make predictions about data it has not seen, based on the data is has been feed. 
+A Random Forest is a collection of decision trees that are formed by "Bootstrapping" data where each decision tree uses of different subset of data points taken from the main data set. These decision trees then make predictions based on certain conditions and these predictions are then each combined into a single point, "aggregating" the data. The Randomness comes from the random selection of data points for each decision tree, so the model is less sensitive to the training data. These different data subsets per tree also allows the trees to not be as correlated to one another, giving varied predictions. Variance is important because 
 
 ## The Three Models: Linear, Static, Dynamic 
 
@@ -18,6 +19,10 @@ The static model uses the energy data from the year 2022 for each country and pr
 The dynamic model uses the same random forest model as the static model, but instead of using 2022 for each year's renewable energy share forecast, an approximation is made year by year via applying the median annual change in each of a country's energy features from 2000-2022. Thus, forecasts will vary each year due to fluctuation in data points, mimicing the actual world much more closely. 
 
 ## Model Performance Summary 
+We use Mean Squared Error (MSE) and R2 Score to test the accuracy of our training and testing models relative to our actual data set. MSE measures the average squared difference between predicted and actual values, while R2 score measures how well a regression model explains the variance of the predicted variable. 
+*insert picture of rf3_results* 
+From training MSE, the predicted values and actual values only differ around 0.02%, demonstrating almost a perfect fit.
+From training R2, the model explains around 85% of the variance in the training data, so it fits the data well. 
 
 ## Key Findings 
 
