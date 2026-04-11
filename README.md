@@ -26,7 +26,9 @@ The dynamic model uses the same random forest model as the static model, but ins
 
 We use Mean Squared Error (MSE) and R2 Score to test the accuracy of our training and testing models relative to our actual data set. MSE measures the average squared difference between predicted and actual values, while R2 score measures how well a regression model explains the variance of the predicted variable. Note that variance here differs from model variance described above. Here, variance represents the percent at which the differing renewable share percentages across years are explained by the features of the data. For example, an R2 score of 0.0050 means that the model explains only 50% of why countries' renewable shares changed the way they did across a set of years. 
 
-*insert picture of rf3_results* 
+<p align="center">
+  <img src="./results/results_table.png">
+</p>
 
 For training MSE, the predicted values and actual values only differ around 0.02%, demonstrating almost a perfect fit.
 
@@ -40,15 +42,17 @@ For testing R2, the model only explains around 6% of the variance in the testing
 
 Of the three models, the dynamic model performs the best, as hoped. The dynamic model is strong on a majority of countries, highlighting volatility and its ability to perform under varying data between countries. It also provides a sense of realism as the forecasting line fluctuates, unlike the linear and static forecasts, and the renewable share accelerates in countries such as Korea, Ireland, and Greece, portraying an optimistic view on growth in the near future. The static model follows the dynamic model closely due to the lack of real world factors, such as an influx of money into solar panels, that could shift the dynamic model significantly from the others. The linear model, due to its nature, offers a much slower growth for almost all countries in comparison to the other two models, especially when a country is gaining momentum in terms of renewable share growth. 
 
+
 <p align="center">
   <img src="./results/new_zealand_forecast.png">
 </p>
+
 
 <p align= "center">
   <img src="./results/united_states_forecast.png">
 </p>
 
-Where the models fail to be 100% consistent in terms of what we might expect to happen in the real world are the models who have experienced more drops in share percentage than growth. When examining the linear model on countries such as Egypt, Indonesia, and Latvia, the "baseline" that the model offers can be viewed as a worst-case-scenario, thus when considering real world factors, stooping to this threshold is unlikely, meaining that if a country does follow the linear forecast in these examples, they are significantly failing when it comes to energy transition. 
+In Egypt, Indonesia, and Latvia the dynamic model shines in comparison to the linear model is when there is negative growth. When examining the linear model on the following countries the baseline that the model offers can be viewed as a worst-case-scenario, thus when considering real world factors, stooping to this threshold is unlikely. What the opposing trend lines tell us is that if a country ends up following the linear forecast in these examples despite the optimistic prediction of the dynamic and even static model, they are significantly failing when it comes to energy transition. 
 
 The dynamic model struggles on to perform on Norway, Sweden and Switzerland, though these discrepancies can be explained by the features importance chart which explains what data have the most impact on model forecasting. Because of the design choice to exclude the renewable energy source biofuels from the group that contributes to renewable share, we see a negative trend line in Sweden and Switzerland. As for why the dynamic and static lines differ so much, this is due to the fact that Switzerland experienced major droughts in 2021 and 2022, leaving an outlier in electricity generation from hydro, which happens to be the most important feature in the feature performance chart. This resulted in a trend line was skewed heavily toward predicting greater decreases in hydro output, which doesn't typically happen without permanent plant shutdowns or extreme droughts. Lastly, in Norway, we see an increase in the total energy supply of oil, biofuels, and natural gas, and additionally extremely little flucutation among the renewable energy share of norway, which has hovered between 95% and 99% for 20 years straight. Because Norway has operated close to the maximum renewable threshold for so long, it is unlikely that their renewable share would follow the negative trend line the model predicts without experiencing unanticipated disruptions in policy or infrastructure. The model fails to capture this reality as it exaggerates Norway's decline based on the lack of renewable growth Norway has seen because they are already near the ceiling of renewable energy share. 
 
@@ -63,13 +67,13 @@ Overall, the dynamic model proved well in its ability to forecast the renewable 
 
    `python -m venv sklearn-env`
 
-   `source sklearn-env/bin/activate`
+   Mac/Linux: `source sklearn-env/bin/activate`
 
-   Windows Users: 
+   Windows Users: `sklearn-env\Scripts\activate`
 
-   `sklearn-env\Scripts\activate`
 3. Install dependencies:
-   pip install -r requirements.txt
-4. Place the IEA data file in the `notebooks` directory
-5. Open and run `notebooks/renewable_share_forecast.ipynb` using Run all
+
+   `pip install -r requirements.txt`
+
+4. Open and run `notebooks/renewable_share_forecast.ipynb` using Run All
    Results and forecast CSVs will be saved in the `results/` folder
