@@ -12,7 +12,7 @@ The data used for the project was sourced from the International Energy Agency (
 
 Machine learning is the process of feeding a model, like Random Forests, a data set and training the model on that data. Training means that the computer tries to make predictions about data it has not seen, based on the data it has been feed. 
 
-A Random Forest is a collection of decision trees that are formed by "Bootstrapping" data where each decision tree uses a different subset of data points taken from the main data set. These decision trees then make predictions based on certain conditions and these predictions are then each combined into a single point, "aggregating" the data. The "Random" comes from the random selection of data points for each decision tree, so the model is less sensitive to the training data. These different data subsets per tree also allows the trees to not be as correlated to one another, giving varied predictions. Variance is important because it allows for each data point to contribute to the final predicition and no one data point controls all outcomes. Another importance feature of variance is that errors that occur across predictions are evened out when the final predictions are averaged together, providing a more stable answer. Random Forest was chosen for these attributes and additionally, because it is a regression machine-learning algorithm, meaning it is specifically used to find correlations between different input variables to predict an outcome. As opposed to other regression algorithms, Random Forest specifically can find correlations between non-linear data points, which is crucial as we consider 39 different countries, each with their own diverse energy profile.
+A Random Forest is a collection of decision trees that are formed by "Bootstrapping" data where each decision tree uses a different subset of data points taken from the main data set. These decision trees then make predictions based on certain conditions and these predictions are then each combined into a single point, "aggregating" the data. The "Random" comes from the random selection of data points for each decision tree, so the model is less sensitive to the training data. These different data subsets per tree also allows the trees to not be as correlated to one another, giving varied predictions. Variance is important because it allows for each data point to contribute to the final predicition and no one data point controls all outcomes. Another important feature of variance is that errors that occur across predictions are evened out when the final predictions are averaged together, providing a more stable answer. Random Forest was chosen for these attributes and additionally, because it is a regression machine-learning algorithm, meaning it is specifically used to find correlations between different input variables to predict an outcome. As opposed to other regression algorithms, Random Forest specifically can find correlations between non-linear data points, which is crucial as we consider 39 different countries, each with their own diverse energy profile.
 
 ## The Three Models: Linear, Static, Dynamic 
 
@@ -40,11 +40,13 @@ For testing R2, the model only explains around 6% of the variance in the testing
 
 Of the three models, the dynamic model performs the best, as hoped. The dynamic model is strong on a majority of countries, highlighting volatility and its ability to perform under varying data between countries. It also provides a sense of realism as the forecasting line fluctuates, unlike the linear and static forecasts, and the renewable share accelerates in countries such as Korea, Ireland, and Greece, portraying an optimistic view on growth in the near future. The static model follows the dynamic model closely due to the lack of real world factors, such as an influx of money into solar panels, that could shift the dynamic model significantly from the others. The linear model, due to its nature, offers a much slower growth for almost all countries in comparison to the other two models, especially when a country is gaining momentum in terms of renewable share growth. 
 
-![US Forecast](results/best_forecast_plot1.png)
+<p align="center">
+  <img src="./results/new_zealand_forecast_.png">
+</p>
 
-![Greece Forecast](results/best_forecast_plot2.png)
-
-![New Zealand Forecast](results/best_forecast_plot3.png)
+<p align= "center">
+  <img src="./results/united_states_forecast_.png">
+</p>
 
 Where the models fail to be 100% consistent in terms of what we might expect to happen in the real world are the models who have experienced more drops in share percentage than growth. When examining the linear model on countries such as Egypt, Indonesia, and Latvia, the "baseline" that the model offers can be viewed as a worst-case-scenario, thus when considering real world factors, stooping to this threshold is unlikely, meaining that if a country does follow the linear forecast in these examples, they are significantly failing when it comes to energy transition. 
 
